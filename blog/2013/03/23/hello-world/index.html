@@ -9,8 +9,7 @@
   <meta name="author" content="Oleg Bulatov">
 
   
-  <meta name="description" content="My first Octopress post.
-">
+  <meta name="description" content="My first Octopress post. ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -30,6 +29,8 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<link href="/stylesheets/vis.css" rel="stylesheet" type="text/css">
 
   
 
@@ -93,6 +94,16 @@
 
 
 <div class="entry-content"><p>My first Octopress post.</p>
+
+<!-- more -->
+
+
+
+
+<div class="vis b-chart" data-block="b-chart" data-config='{"tAxes": [{"rangeProvider": {"name": "i-current-time-range-provider", "period": 10, "delay": 100}}], "xAxes": [{"rangeProvider": {"name": "i-static-range-provider", "min": -1, "max": 1}}], "yAxes": [{"rangeProvider": {"name": "i-static-range-provider", "min": -1, "max": 1}}], "items": [{"dataProvider": {"name": "i-math-data-provider", "factor": 0.5, "step": 0.05, "func": "lissajous", "a": 2, "b": 5}}], "overlays": [{"name": "b-grid-overlay"}, {"name": "b-render-overlay"}]}'></div>
+
+
+
 </div>
 
 
@@ -166,6 +177,8 @@
   Copyright &copy; 2013 - Oleg Bulatov -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
+<script src="/javascripts/vis.js"></script>
+<script src="/javascripts/vis-init.js"></script>
 
 </footer>
   

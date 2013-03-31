@@ -9,12 +9,17 @@
   <meta name="author" content="Oleg Bulatov">
 
   
-  <meta name="description" content="Сначала нужно собрать актуальную версию Vis.js git clone git://github.com/dmage/vis.git
-cd vis
-gmake Потом создать файл с графиком test.html 1
+  <meta name="description" content="TODO: сопроводительный текст :) 1
 2
 3
-4 &hellip;">
+4
+5
+6
+7
+8
+9
+10
+Vis.blocks['i-static-random-data-provider'] = { get: function() { var x = [], y = []; for (var i &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -36,6 +41,8 @@ gmake Потом создать файл с графиком test.html 1
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
 <link href="/stylesheets/vis.css" rel="stylesheet" type="text/css">
+<script src="/javascripts/vis.js"></script>
+<script src="/javascripts/vis-init.js"></script>
 
   
 
@@ -72,6 +79,182 @@ gmake Потом создать файл с графиком test.html 1
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/03/31/simple-custom-item-data-provider/">Простой собственный Data Provider для данных графика</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-31T21:22:00+04:00" pubdate data-updated="true">Mar 31<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>TODO: сопроводительный текст :)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Vis.blocks['i-static-random-data-provider'] = {
+</span><span class='line'>    get: function() {
+</span><span class='line'>        var x = [], y = [];
+</span><span class='line'>        for (var i = 1; i &lt; 20; ++i) {
+</span><span class='line'>            x.push(i);
+</span><span class='line'>            y.push(Math.random());
+</span><span class='line'>        }
+</span><span class='line'>        return { x: x, y: y };
+</span><span class='line'>    }
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!DOCTYPE html>
+</span><span class='line'>&lt;html>
+</span><span class='line'>
+</span><span class='line'>&lt;head>
+</span><span class='line'>&lt;meta charset="utf-8">
+</span><span class='line'>&lt;title>Vis.js&lt;/title>
+</span><span class='line'>&lt;link rel="stylesheet" type="text/css" href="vis.css">
+</span><span class='line'>&lt;script src="http://yandex.st/jquery/1.9.1/jquery.min.js">&lt;/script>
+</span><span class='line'>&lt;script src="vis.js">&lt;/script>
+</span><span class='line'>&lt;script>
+</span><span class='line'>Vis.blocks['i-static-random-data-provider'] = {
+</span><span class='line'>    get: function() {
+</span><span class='line'>        var x = [], y = [];
+</span><span class='line'>        for (var i = 1; i &lt; 20; ++i) {
+</span><span class='line'>            x.push(i);
+</span><span class='line'>            y.push(Math.random());
+</span><span class='line'>        }
+</span><span class='line'>        return { x: x, y: y };
+</span><span class='line'>    }
+</span><span class='line'>};
+</span><span class='line'>
+</span><span class='line'>$(function() {
+</span><span class='line'>    Vis(
+</span><span class='line'>        {
+</span><span class='line'>            $object: $('.b-chart'),
+</span><span class='line'>            xAxes: [
+</span><span class='line'>                { rangeProvider: { name: 'i-static-range-provider', min: 0.5, max: 19.5 } }
+</span><span class='line'>            ],
+</span><span class='line'>            yAxes: [
+</span><span class='line'>                { rangeProvider: { name: 'i-static-range-provider', min: 0, max: 1 } }
+</span><span class='line'>            ],
+</span><span class='line'>            items: [
+</span><span class='line'>                { dataProvider: { name: 'i-static-random-data-provider' } }
+</span><span class='line'>            ],
+</span><span class='line'>            overlays: [
+</span><span class='line'>                { name: 'b-grid-overlay' },
+</span><span class='line'>                { name: 'b-render-overlay' },
+</span><span class='line'>                { name: 'b-tooltip-overlay' }
+</span><span class='line'>            ]
+</span><span class='line'>        },
+</span><span class='line'>        'b-chart'
+</span><span class='line'>    );
+</span><span class='line'>});
+</span><span class='line'>&lt;/script>
+</span><span class='line'>&lt;/head>
+</span><span class='line'>
+</span><span class='line'>&lt;body>
+</span><span class='line'>&lt;h1>Vis.js&lt;/h1>
+</span><span class='line'>&lt;div class="b-chart">&lt;/div>
+</span><span class='line'>&lt;/body>
+</span><span class='line'>
+</span><span class='line'>&lt;/html></span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<script src="/javascripts/2013-03-31-simple-custom-item-data-provider.js"></script>
+
+
+<div class="vis b-chart" data-block="b-chart" data-config='{"xAxes": [{"rangeProvider": {"name": "i-static-range-provider", "min": 0.5, "max": 19.5}}], "yAxes": [{"rangeProvider": {"name": "i-static-range-provider", "min": 0, "max": 1}}], "items": [{"dataProvider": {"name": "i-static-random-data-provider"}}], "overlays": [{"name": "b-grid-overlay"}, {"name": "b-render-overlay"}, {"name": "b-tooltip-overlay"}]}'></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -275,6 +458,10 @@ gmake
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/03/31/simple-custom-item-data-provider/">Простой собственный data provider для данных графика</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/03/30/chart-with-static-data/">График со статическими данными</a>
       </li>
     
@@ -298,8 +485,6 @@ gmake
   Copyright &copy; 2013 - Oleg Bulatov -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
-<script src="/javascripts/vis.js"></script>
-<script src="/javascripts/vis-init.js"></script>
 
 </footer>
   
